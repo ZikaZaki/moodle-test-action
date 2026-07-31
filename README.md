@@ -33,7 +33,7 @@ permissions:
 
 jobs:
   ci:
-    uses: praxisdigital/moodle-test-action/.github/workflows/ci.yml@master
+    uses: ZikaZaki/moodle-test-action/.github/workflows/ci.yml@master
     secrets: inherit
 ```
 
@@ -59,13 +59,13 @@ with:
   php_versions: '["8.3"]'
   db_types: '["mysqli"]'
   moodle_repositories: '["moodle/moodle"]'
-  dependencies: '["praxisdigital/local_pxsdk@master"]'
+  dependencies: '["ZikaZaki/local_myplugin@master"]'
   additional_phpunit_arguments: '--filter SomeTest'
 ```
 
 Plugin component and install path are auto-detected from `$plugin->component` in `version.php`. Use `plugin_component` or `plugin_path` only for unusual plugins.
 
-When using the root action, `action_ref` defaults to the same ref as `uses: praxisdigital/moodle-test-action@...`. Override it only when the wrapper and subactions should come from different refs.
+When using the root action, `action_ref` defaults to the same ref as `uses: ZikaZaki/moodle-test-action@...`. Override it only when the wrapper and subactions should come from different refs.
 
 ## Behat
 
@@ -92,14 +92,14 @@ If no `tests/behat/*.feature` files exist, the Behat job exits successfully and 
 The root action is a compatibility wrapper. It runs PHPUnit by default and Behat only when `run_behat: 'true'` is set.
 
 ```yaml
-- uses: praxisdigital/moodle-test-action@master
+- uses: ZikaZaki/moodle-test-action@master
   with:
     php: '8.4'
     moodle: 'MOODLE_502_STABLE'
     moodle_repository: 'moodle/moodle'
     dbtype: 'mysqli'
     dependencies: |
-      praxisdigital/local_pxsdk@master
+      ZikaZaki/local_myplugin@master
     action_ref: 'mma_BehatOnDemand'
     PRIVATE_REPO_TOKEN: ${{ secrets.MOODLE_GH_KEY }}
 ```
@@ -107,10 +107,10 @@ The root action is a compatibility wrapper. It runs PHPUnit by default and Behat
 ## Modular PHPUnit Usage
 
 ```yaml
-- uses: praxisdigital/moodle-test-action/phpunit-test@master
+- uses: ZikaZaki/moodle-test-action/phpunit-test@master
   with:
-    plugin: 'local_pxsdk'
-    plugin-path: 'local/pxsdk'
+    plugin: 'local_myplugin'
+    plugin-path: 'local/myplugin'
     php: '8.4'
     moodle: 'MOODLE_502_STABLE'
     moodle_repository: 'moodle/moodle'

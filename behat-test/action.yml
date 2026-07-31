@@ -201,7 +201,7 @@ runs:
 
     - name: Start MySQL service
       if: ${{ steps.detect.outputs.has_behat == 'true' && inputs.dbtype == 'mysqli' }}
-      uses: praxisdigital/mysql-action@tmpfs-and-docker-patch
+      uses: ZikaZaki/mysql-action@tmpfs-and-docker-patch
       with:
         collation server: utf8mb4_unicode_ci
         mysql version: 8

@@ -24,14 +24,11 @@ permissions:
 
 jobs:
   ci:
-    uses: praxisdigital/moodle-test-action/.github/workflows/ci.yml@master
+    uses: ZikaZaki/moodle-test-action/.github/workflows/ci.yml@master
     secrets: inherit
     with:
       dependencies: >-
         [
-          "praxisdigital/local_pxsdk@master",
-          "praxisdigital/local_pxllogger@MOODLE_42_STABLE",
-          "praxisdigital/local__praxislib@MOODLE_42_STABLE",
-          "praxisdigital/local__wspraxis@MOODLE_42_STABLE",
-          "praxisdigital/enrol__praxisintegration@MOODLE_42_STABLE"
+          "ZikaZaki/local_myplugin@master",
+          "ZikaZaki/mod_otherplugin@MOODLE_42_STABLE"
         ]

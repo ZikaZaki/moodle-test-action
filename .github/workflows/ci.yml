@@ -211,7 +211,7 @@ jobs:
       - name: Check out moodle-test-action subactions
         uses: actions/checkout@v6
         with:
-          repository: praxisdigital/moodle-test-action
+          repository: ZikaZaki/moodle-test-action
           ref: ${{ inputs.action_ref }}
           path: .moodle-test-action
           persist-credentials: false
@@ -533,7 +533,7 @@ jobs:
       - name: Check out moodle-test-action subactions
         uses: actions/checkout@v6
         with:
-          repository: praxisdigital/moodle-test-action
+          repository: ZikaZaki/moodle-test-action
           ref: ${{ inputs.action_ref }}
           path: .moodle-test-action
           persist-credentials: false
@@ -585,7 +585,7 @@ jobs:
           moodle_repository: ${{ matrix.moodle_repository }}
           os: ${{ matrix.os }}
           additional_phpunit_arguments: ${{ inputs.additional_phpunit_arguments || vars.MOODLE_ADDITIONAL_PHPUNIT_ARGUMENTS || '' }}
-          org: ${{ inputs.org || vars.MOODLE_ORG || 'praxisdigital' }}
+          org: ${{ inputs.org || vars.MOODLE_ORG || 'ZikaZaki' }}
           dependencies: ${{ matrix.dependencies }}
           dbtype: ${{ matrix.dbtype }}
           experimental: ${{ matrix.experimental }}

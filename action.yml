@@ -33,7 +33,7 @@ inputs:
   org:
     description: 'Organization'
     required: false
-    default: 'praxisdigital'
+    default: 'ZikaZaki'
   dependencies:
     description: 'Plugin dependencies in org/repo@ref format, one per line or space separated'
     required: false
@@ -94,7 +94,7 @@ runs:
       if: ${{ inputs.run_phpunit == 'true' || inputs.run_behat == 'true' }}
       uses: actions/checkout@v6
       with:
-        repository: praxisdigital/moodle-test-action
+        repository: ZikaZaki/moodle-test-action
         ref: ${{ inputs.action_ref || github.action_ref || 'master' }}
         path: .moodle-test-action
         persist-credentials: false
@@ -110,7 +110,7 @@ runs:
         moodle_repository: ${{ inputs.moodle_repository || 'moodle/moodle' }}
         os: ${{ inputs.os || 'ubuntu-latest' }}
         additional_phpunit_arguments: ${{ inputs.additional_phpunit_arguments }}
-        org: ${{ inputs.org || 'praxisdigital' }}
+        org: ${{ inputs.org || 'ZikaZaki' }}
         dependencies: ${{ inputs.dependencies }}
         dbtype: ${{ inputs.dbtype || 'mysqli' }}
         experimental: ${{ inputs.experimental }}

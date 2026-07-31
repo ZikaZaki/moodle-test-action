@@ -30,14 +30,14 @@ inputs:
   org:
     description: 'Organization'
     required: false
-    default: 'praxisdigital'
+    default: 'ZikaZaki'
   dependencies:
     description: >
       Plugin dependencies.
       Format: org/repo@ref
       Example: |
-        praxisdigital/assignsubmission_pxaiwriter@master
-        praxisdigital/mod_smartlink@MOODLE_42_STABLE
+        ZikaZaki/local_myplugin@master
+        ZikaZaki/mod_otherplugin@MOODLE_42_STABLE
     required: false
     default: ''
   dbtype:
@@ -66,7 +66,7 @@ runs:
   steps:
     - name: Setting up DB mysql
       if: ${{ inputs.dbtype == 'mysqli' }}
-      uses: praxisdigital/mysql-action@tmpfs-and-docker-patch
+      uses: ZikaZaki/mysql-action@tmpfs-and-docker-patch
       with:
         collation server: utf8mb4_danish_ci
         mysql version: 8
@@ -84,9 +84,18 @@ runs:
         postgresql user: test
         postgresql password: test
 
+    - name: Check out setup-mssql-server subaction
+      if: ${{ inputs.dbtype == 'sqlsrv' }}
+      uses: actions/checkout@v6
+      with:
+        repository: ZikaZaki/moodle-test-action
+        ref: ${{ github.action_ref || 'master' }}
+        path: .moodle-test-action-mssql
+        persist-credentials: false
+
     - name: Setting up DB mssql
       if: ${{ inputs.dbtype == 'sqlsrv' }}
-      uses: praxisdigital/setup-mssql-server@main
+      uses: ./.moodle-test-action-mssql/setup-mssql-server
       with:
         version: 2022
         user: test
