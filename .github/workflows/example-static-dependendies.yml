@@ -24,7 +24,7 @@ permissions:
 
 jobs:
   ci:
-    uses: ZikaZaki/moodle-test-action/.github/workflows/ci.yml@master
+    uses: ZikaZaki/moodle-test-action/.github/workflows/ci.yml@main
     secrets: inherit
     with:
       dependencies: >-

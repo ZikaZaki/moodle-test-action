@@ -117,7 +117,7 @@ on:
         description: 'moodle-test-action ref used for local subactions'
         required: false
         type: string
-        default: 'master'
+        default: 'main'
     secrets:
       MOODLE_GH_KEY:
         description: 'Optional token for private Moodle/plugin dependency repositories'

@@ -89,7 +89,7 @@ runs:
       uses: actions/checkout@v6
       with:
         repository: ZikaZaki/moodle-test-action
-        ref: ${{ github.action_ref || 'master' }}
+        ref: ${{ github.action_ref || 'main' }}
         path: .moodle-test-action-mssql
         persist-credentials: false
 

@@ -33,7 +33,7 @@ permissions:
 
 jobs:
   ci:
-    uses: ZikaZaki/moodle-test-action/.github/workflows/ci.yml@master
+    uses: ZikaZaki/moodle-test-action/.github/workflows/ci.yml@main
     secrets: inherit
 ```
 
@@ -92,7 +92,7 @@ If no `tests/behat/*.feature` files exist, the Behat job exits successfully and 
 The root action is a compatibility wrapper. It runs PHPUnit by default and Behat only when `run_behat: 'true'` is set.
 
 ```yaml
-- uses: ZikaZaki/moodle-test-action@master
+- uses: ZikaZaki/moodle-test-action@main
   with:
     php: '8.4'
     moodle: 'MOODLE_502_STABLE'
@@ -107,7 +107,7 @@ The root action is a compatibility wrapper. It runs PHPUnit by default and Behat
 ## Modular PHPUnit Usage
 
 ```yaml
-- uses: ZikaZaki/moodle-test-action/phpunit-test@master
+- uses: ZikaZaki/moodle-test-action/phpunit-test@main
   with:
     plugin: 'local_myplugin'
     plugin-path: 'local/myplugin'

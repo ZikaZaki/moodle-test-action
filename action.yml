@@ -83,7 +83,7 @@ inputs:
     required: false
     default: ''
   action_ref:
-    description: 'moodle-test-action ref used for local subactions. Defaults to the ref used by this action, then master.'
+    description: 'moodle-test-action ref used for local subactions. Defaults to the ref used by this action, then main.'
     required: false
     default: ''
 
@@ -95,7 +95,7 @@ runs:
       uses: actions/checkout@v6
       with:
         repository: ZikaZaki/moodle-test-action
-        ref: ${{ inputs.action_ref || github.action_ref || 'master' }}
+        ref: ${{ inputs.action_ref || github.action_ref || 'main' }}
         path: .moodle-test-action
         persist-credentials: false
 
